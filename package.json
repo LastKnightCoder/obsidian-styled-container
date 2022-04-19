@@ -1,7 +1,7 @@
 {
-	"name": "obsidian-sample-plugin",
-	"version": "1.0.1",
-	"description": "This is a sample plugin for Obsidian (https://obsidian.md)",
+	"name": "obsidian-styled-container",
+	"version": "0.0.2",
+	"description": "You can use named codeblocks beauty your content, it can contain any markdown content.",
 	"main": "main.js",
 	"scripts": {
 		"dev": "node esbuild.config.mjs",
