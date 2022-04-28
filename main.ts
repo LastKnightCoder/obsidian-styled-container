@@ -1,4 +1,4 @@
-import { Plugin, MarkdownRenderer, MarkdownRenderChild, Component } from 'obsidian';
+import { Plugin, MarkdownRenderer } from 'obsidian';
 
 export default class MyPlugin extends Plugin {
 
@@ -17,8 +17,7 @@ export default class MyPlugin extends Plugin {
 
     for (let key in tables) {
       this.registerMarkdownCodeBlockProcessor(key, async (source, el, ctx) => {        
-        const com: Component = new MarkdownRenderChild(el);
-        await MarkdownRenderer.renderMarkdown(source, el, '.', com);
+        await MarkdownRenderer.renderMarkdown(source, el, '.', null);
         
         el.addClass('custom-block');
         el.addClass(key);
