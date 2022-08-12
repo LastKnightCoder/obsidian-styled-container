@@ -38,6 +38,16 @@ export default class MyPlugin extends Plugin {
         }
       });
     });
+
+    this.addCommand({
+      id: `Add Popover`,
+      name: `Add Popover`,
+      editorCallback: async (editor: Editor, view: MarkdownView) => {
+        const content = editor.getSelection();
+        const newContent = `<Popover content=""><span class="comments">${content}</span></Popover>`
+        editor.replaceSelection(`${newContent}`)
+      }
+    });
   }
     
   onunload() {

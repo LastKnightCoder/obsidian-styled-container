@@ -1,6 +1,6 @@
 {
 	"name": "obsidian-styled-container",
-	"version": "0.1.4",
+	"version": "0.1.5",
 	"description": "You can use named codeblocks beauty your content, it can contain any markdown content.",
 	"main": "main.js",
 	"scripts": {
