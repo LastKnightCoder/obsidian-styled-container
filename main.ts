@@ -1,4 +1,4 @@
-import { Plugin, MarkdownRenderer } from 'obsidian';
+import { Plugin, MarkdownRenderer, Editor, MarkdownView } from 'obsidian';
 
 export default class MyPlugin extends Plugin {
 
@@ -26,6 +26,18 @@ export default class MyPlugin extends Plugin {
       })
     }
 
+    const colors = ['', 'green', 'red', 'blue', 'purple'];
+    colors.forEach(color => {
+      this.addCommand({
+        id: `Add Comments ${color.toUpperCase()}`,
+        name: `Add Comments ${color.toUpperCase()}`,
+        editorCallback: async (editor: Editor, view: MarkdownView) => {
+          const content = editor.getSelection();
+          const newContent = `<span class="comments ${color}">${content}</span>`
+          editor.replaceSelection(`${newContent}`)
+        }
+      });
+    });
   }
     
   onunload() {
