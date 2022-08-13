@@ -44,7 +44,7 @@ export default class MyPlugin extends Plugin {
       name: `Add Popover`,
       editorCallback: async (editor: Editor, view: MarkdownView) => {
         const content = editor.getSelection();
-        const newContent = `<Popover content=""><span class="comments">${content}</span></Popover>`
+        const newContent = `<Popover content=""><span className="comments">${content}</span></Popover>`
         editor.replaceSelection(`${newContent}`)
       }
     });
