@@ -31,7 +31,8 @@ export default class MyPlugin extends Plugin {
       this.addCommand({
         id: `Add Comments ${color.toUpperCase()}`,
         name: `Add Comments ${color.toUpperCase()}`,
-        editorCallback: async (editor: Editor, view: MarkdownView) => {
+        callback: () => {
+          const editor = this.app.workspace.getActiveViewOfType(MarkdownView).editor;
           const content = editor.getSelection();
           const newContent = `<span class="comments ${color}">${content}</span>`
           editor.replaceSelection(`${newContent}`)
@@ -42,7 +43,8 @@ export default class MyPlugin extends Plugin {
     this.addCommand({
       id: `Add Popover`,
       name: `Add Popover`,
-      editorCallback: async (editor: Editor, view: MarkdownView) => {
+      callback: () => {
+        const editor = this.app.workspace.getActiveViewOfType(MarkdownView).editor;
         const content = editor.getSelection();
         const newContent = `<Popover content=""><span className="comments">${content}</span></Popover>`
         editor.replaceSelection(`${newContent}`)
