@@ -40,6 +40,19 @@ export default class MyPlugin extends Plugin {
       });
     });
 
+    ['tip', 'note', 'info', 'warning', 'danger'].forEach(item => {
+      this.addCommand({
+        id: `Add Custom Block ${item.toUpperCase()}`,
+        name: `Add Custom Block ${item.toUpperCase()}`,
+        callback: () => {
+          const editor = this.app.workspace.getActiveViewOfType(MarkdownView).editor;
+          const content = editor.getSelection();
+          const newContent = `\`\`\`${item}\n${content}\n\`\`\``
+          editor.replaceSelection(newContent);
+        }
+      });
+    })
+
     this.addCommand({
       id: `Add Popover`,
       name: `Add Popover`,
