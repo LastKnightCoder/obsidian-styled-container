@@ -1,7 +1,7 @@
 {
 	"id": "obsidian-styled-container",
 	"name": "Styled Container",
-	"version": "0.1.8",
+	"version": "0.1.9",
 	"minAppVersion": "0.14.0",
 	"description": "You can use named codeblocks beauty your content, it can contain any markdown content.",
 	"author": "lastknightcoder",

@@ -17,7 +17,8 @@ export default class MyPlugin extends Plugin {
 
     for (let key in tables) {
       this.registerMarkdownCodeBlockProcessor(key, async (source, el, ctx) => {        
-        await MarkdownRenderer.renderMarkdown(source, el, '.', null);
+        const view = this.app.workspace.getActiveViewOfType(MarkdownView);
+        await MarkdownRenderer.renderMarkdown(source, el, '.', view);
         
         el.addClass('custom-block');
         el.addClass(key);
@@ -51,17 +52,6 @@ export default class MyPlugin extends Plugin {
           editor.replaceSelection(newContent);
         }
       });
-    })
-
-    this.addCommand({
-      id: `Add Popover`,
-      name: `Add Popover`,
-      callback: () => {
-        const editor = this.app.workspace.getActiveViewOfType(MarkdownView).editor;
-        const content = editor.getSelection();
-        const newContent = `<Popover content=""><span className="comments">${content}</span></Popover>`
-        editor.replaceSelection(`${newContent}`)
-      }
     });
   }
     
